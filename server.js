@@ -14,14 +14,23 @@ const db = mysql.createConnection(
     {
       host: 'localhost',
       // Your MySQL username,
-      user: 'mysql',
+      user: 'root',
       // Your MySQL password
       password: 'root',
       database: 'election'
     },
     console.log('Connected to the election database.')
   );
+  
+  db.connect((err) => {
+    if (err) throw err;
+    // runSearch();
+  });
 
+  db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+  });
+  
 // localhost server connection 
 app.get('/',(req, res) => {
     res.json({
