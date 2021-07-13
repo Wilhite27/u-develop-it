@@ -119,3 +119,5 @@ router.delete('/api/candidate/:id', (req, res) => {
         }
     });
 });
+
+module.exports = router;
